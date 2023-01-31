@@ -7,6 +7,7 @@ export const pathStore = createStore((path) => {
 });
 
 export const queryStore = createStore((query) => {
+	if (query === undefined) query = ''
 	if (typeof query !== 'string') query = stringifyQuery(query.params);
 	return Object.assign(new String(query), { params: parseQuery(query) });
 });
